@@ -45,6 +45,7 @@
          </tbody>
       </table>
 
+   <!-- Import data untuk kebutuhan print -->
    <script src="./vendors/js/bootstrap.min.js"></script>
    <script src="./vendors/jquery/jquery.min.js"></script>
    <script src="./vendors/jquery-print/jQuery.print.min.js"></script>
