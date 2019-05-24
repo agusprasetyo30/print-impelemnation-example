@@ -17,6 +17,8 @@
          <div class="col-md-12 text-right">
             <a href="user-create.php" 
                class="btn btn-primary mt-3 mb-3">Tambah data user</a>
+            <a href="print.php" 
+               class="btn btn-success mt-3 mb-3">Print</a>
          </div>
       </div>
       <table class="table table-bordered table-striped table-hover">
