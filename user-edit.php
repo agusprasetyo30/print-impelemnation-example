@@ -1,5 +1,5 @@
 <?php
-   $title = "Edit Todo";
+   $title = "Edit User";
    include "layouts/header.php";
    include "function.php";
 
@@ -17,10 +17,10 @@
    </div>   
    <div class="col-md-6 bg-white">
       <form action="" method="post" class="shadow-lg p-3 bg-white">
-      <label for="name">Nama</label>
+      <label for="nama">Nama</label>
          <input type="text" 
-            name="name" 
-            id="name"
+            name="nama" 
+            id="nama"
             class="form-control"
             placeholder="Input nama . . ." 
             autofocus="on" required
@@ -31,6 +31,7 @@
             name="telepon" 
             id="telepon"
             class="form-control"
+            maxlength="15"
             placeholder="Input nomer telepon . . ." required
             value="<?= $user['telp'] ?>"> <br>
       
@@ -63,15 +64,15 @@
          echo "
             <script>
                alert('User successfully updated!');
-               document.location.href = 'index.php';
+               document.location.href = './';
             </script>
             ";
 
         } else {
             echo "
             <script>
-               alert('Data gagal diubah');
-               // document.location.href = 'todo-create.php';            
+               alert('Tidak ada perubahan data');
+               document.location.href = './';            
             </script>
             ";
             echo("<br>");

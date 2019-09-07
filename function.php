@@ -17,11 +17,12 @@
   {
     global $koneksi;
 
-    $name = htmlspecialchars($data['name']);
+    $nama = htmlspecialchars($data['nama']);
     $telepon = htmlspecialchars($data['telepon']);
     $email = htmlspecialchars($data['email']);
 
-    $query = "INSERT INTO user VALUES (NULL, '$name', '$telepon', '$email') ";
+    $query = "INSERT INTO user VALUES (NULL, '$nama', '$telepon', '$email') ";
+
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
@@ -31,7 +32,7 @@
   {
     global $koneksi;
 
-    $nama = htmlspecialchars($data['name']);
+    $nama = htmlspecialchars($data['nama']);
     $telepon = htmlspecialchars($data['telepon']);
     $email = htmlspecialchars($data['email']);
 

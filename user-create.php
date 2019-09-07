@@ -13,10 +13,10 @@
    </div>   
    <div class="col-md-6 bg-white">
       <form action="" method="post" class="shadow-lg p-3 bg-white">
-         <label for="name">Nama</label>
+         <label for="nama">Nama</label>
          <input type="text" 
-            name="name" 
-            id="name"
+            name="nama" 
+            id="nama"
             class="form-control"
             placeholder="Input nama . . ." 
             autofocus="on" required> <br>
@@ -50,25 +50,40 @@
 <?php
    include "layouts/footer.php";
 
-   if (isset($_POST['submit'])) {
-      if (addUser($_POST) > 0) 
-      {
+   $namaUser = query("SELECT nama FROM user WHERE nama = '$_POST[nama]' ")[0];
+
+   if (isset($_POST['submit'])) 
+   {
+
+      if (count($namaUser) > 0) 
+      {  
          echo "
             <script>
-               alert('Todo successfully added!');
-               document.location.href = './';
+               alert('Nama sudah ada');
             </script>
-            ";
-
-        } else {
+         ";
+         
+      } else {
+         if (addUser($_POST) > 0) 
+         {
             echo "
-            <script>
-               alert('Data gagal ditambahkan');
-               // document.location.href = 'todo-create.php';            
-            </script>
-            ";
-            echo("<br>");
-            echo mysqli_error($koneksi);        
+               <script>
+                  alert('Todo successfully added!');
+                  document.location.href = './';
+               </script>
+               ";
+
+         } else {
+               echo "
+               <script>
+                  alert('Data gagal ditambahkan');
+                  // document.location.href = 'todo-create.php';            
+               </script>
+               ";
+               echo("<br>");
+               echo mysqli_error($koneksi);        
+         }      
+         
       }
    }
 ?>
