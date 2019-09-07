@@ -2,11 +2,11 @@
     include "function.php";
     $id = $_GET['id'];
 
-    if (deleteTodo($id) > 0) {
+    if (deleteUser($id) > 0) {
         echo "
             <script>
-                alert('Delete todo successfully!');
-                document.location.href = 'index.php';
+                alert('Delete user successfully!');
+                document.location.href = './';
             </script>
         ";
     } else {

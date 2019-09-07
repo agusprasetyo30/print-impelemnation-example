@@ -1,9 +1,9 @@
 <?php
-   $title = "Simple Todo List";
+   $title = "Data User";
    include "layouts/header.php";
    include "function.php";
 
-   $todoList = query("SELECT * FROM todo");
+   $userList = query("SELECT * FROM user");
 ?>
 
 <div class="row p-3 m-3">
@@ -15,33 +15,35 @@
    <div class="col-md-12 bg-white shadow-lg">
       <div class="row">
          <div class="col-md-12 text-right">
-            <a href="todo-create.php" 
-               class="btn btn-primary mt-3 mb-3">Tambah data</a>
+            <a href="user-create.php" 
+               class="btn btn-primary mt-3 mb-3">Tambah data user</a>
          </div>
       </div>
       <table class="table table-bordered table-striped table-hover">
-         <thead>
+         <thead align="center">
             <tr>
-               <td>NO</td>
-               <td>Name</td>
-               <td>Description</td>
+               <td width=5>NO</td>
+               <td style="width: 300px">Nama</td>
+               <td style="width: 200px">No Telp</td>
+               <td style="width: 400px">Email</td>
                <td>Action</td>
             </tr>
          </thead>
-         <tbody>
+         <tbody align="center">
             <?php
                $i = 1;
-               foreach ($todoList as $data) {
+               foreach ($userList as $data) {
             ?>
             <tr>
                <td><?= $i++ ?>.</td>
-               <td><?= $data['name'] ?></td>
-               <td><?= $data['description'] ?></td>
+               <td><?= $data['nama'] ?></td>
+               <td><?= $data['telp'] ?></td>
+               <td><?= $data['email'] ?></td>
                <td>
-                  <a href="todo-edit.php?id=<?= $data['id'] ?>" 
+                  <a href="user-edit.php?id=<?= $data['id'] ?>" 
                      class="btn btn-warning btn-sm">Edit</a>
-                  <a href="todo-delete.php?id=<?= $data['id'] ?>" 
-                     onclick="return confirm('Apakah anda ingin menghapus todo ini ?')"
+                  <a href="user-delete.php?id=<?= $data['id'] ?>" 
+                     onclick="return confirm('Apakah anda ingin menghapus user ini ?')"
                      class="btn btn-danger btn-sm">Delete</a>
                </td>
             </tr>

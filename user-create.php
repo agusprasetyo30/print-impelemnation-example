@@ -1,5 +1,5 @@
 <?php
-   $title = "Add Todo";
+   $title = "Tambah Makanan";
    include "layouts/header.php";
    include "function.php";
 ?>
@@ -13,23 +13,36 @@
    </div>   
    <div class="col-md-6 bg-white">
       <form action="" method="post" class="shadow-lg p-3 bg-white">
-         <label for="name">Name</label>
+         <label for="name">Nama</label>
          <input type="text" 
             name="name" 
             id="name"
             class="form-control"
-            placeholder="Input todo name . . ." 
+            placeholder="Input nama . . ." 
             autofocus="on" required> <br>
 
-         <label for="description">Description</label>
-         <textarea name="description" 
-            id="description" cols="30" rows="5"
+         <label for="telepon">No Telepon</label>
+         <input type="text" 
+            name="telepon" 
+            id="telepon"
             class="form-control"
-            placeholder="Input todo description . . ." required></textarea> <br>
+            maxlength="15"
+            placeholder="Input nomer telepon . . ." required> <br>
       
+         <label for="email">E-mail</label>
+         <input type="email" 
+            name="email" id="email"
+            class="form-control"
+            placeholder="Input email . . . " required> <br>
+
          <input type="submit" name="submit"
-            value="Save" 
+            value="Simpan" 
             class="btn btn-success btn-block">
+         <a
+            class="btn btn-info btn-block text-white"
+            onclick="document.location.href = './'">
+            Kembali
+         </a>
       </form>
    </div>
 </div>
@@ -38,12 +51,12 @@
    include "layouts/footer.php";
 
    if (isset($_POST['submit'])) {
-      if (addTodo($_POST) > 0) 
+      if (addUser($_POST) > 0) 
       {
          echo "
             <script>
                alert('Todo successfully added!');
-               document.location.href = 'index.php';
+               document.location.href = './';
             </script>
             ";
 

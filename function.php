@@ -13,29 +13,33 @@
       return $rows;
   }
 
-  function addTodo($data)
+  function addUser($data)
   {
     global $koneksi;
 
     $name = htmlspecialchars($data['name']);
-    $description = htmlspecialchars($data['description']);
+    $telepon = htmlspecialchars($data['telepon']);
+    $email = htmlspecialchars($data['email']);
 
-    $query = "INSERT INTO todo VALUES (NULL, '$name', '$description') ";
+    $query = "INSERT INTO user VALUES (NULL, '$name', '$telepon', '$email') ";
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
   }
 
-  function editTodo($data, $id)
+  function editUser($data, $id)
   {
     global $koneksi;
 
-    $name = htmlspecialchars($data['name']);
-    $description = htmlspecialchars($data['description']);
+    $nama = htmlspecialchars($data['name']);
+    $telepon = htmlspecialchars($data['telepon']);
+    $email = htmlspecialchars($data['email']);
 
-    $query = "UPDATE todo SET 
-            name = '$name',
-            description = '$description'
+    $query = "UPDATE user SET 
+            nama = '$nama',
+            telp = '$telepon',
+            email = '$email'
+            
             WHERE id = '$id'";
 
     mysqli_query($koneksi, $query);
@@ -43,11 +47,11 @@
     return mysqli_affected_rows($koneksi);
   }
 
-  function deleteTodo($id)
+  function deleteUser($id)
   {
       global $koneksi;
 
-      $query = "DELETE FROM todo WHERE id = '$id'";
+      $query = "DELETE FROM user WHERE id = '$id'";
 
       mysqli_query($koneksi, $query);
 

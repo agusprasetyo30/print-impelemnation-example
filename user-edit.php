@@ -5,7 +5,7 @@
 
    $id = $_GET['id'];
    
-   $todo = query("SELECT * FROM todo WHERE id = '$id'")[0];
+   $user = query("SELECT * FROM user WHERE id = '$id'")[0];
 ?>
 
 
@@ -17,25 +17,40 @@
    </div>   
    <div class="col-md-6 bg-white">
       <form action="" method="post" class="shadow-lg p-3 bg-white">
-         <label for="name">Name</label>
+      <label for="name">Nama</label>
          <input type="text" 
             name="name" 
             id="name"
             class="form-control"
-            placeholder="Input todo name . . ." 
+            placeholder="Input nama . . ." 
             autofocus="on" required
-            value="<?= $todo['name'] ?>"> <br>
+            value="<?= $user['nama'] ?>"> <br>
 
-         <label for="description">Description</label>
-         <textarea name="description" 
-            id="description" cols="30" rows="5"
+         <label for="telepon">No Telepon</label>
+         <input type="text" 
+            name="telepon" 
+            id="telepon"
             class="form-control"
-            placeholder="Input todo description . . ." required><?= $todo['description'] ?></textarea> <br>
+            placeholder="Input nomer telepon . . ." required
+            value="<?= $user['telp'] ?>"> <br>
+      
+         <label for="email">E-mail</label>
+         <input type="email" 
+            name="email" id="email"
+            class="form-control"
+            placeholder="Input email . . . " required
+            value="<?= $user['email'] ?>"> <br>
       
          <input type="submit" name="submit"
             value="Update" 
-            class="btn btn-warning btn-block">
-      </form>
+            class="btn btn-warning btn-block"/>
+
+            <a
+               class="btn btn-info btn-block text-white"
+               onclick="document.location.href = './'">
+               Kembali
+            </a>
+         </form>
    </div>
 </div>
 
@@ -43,11 +58,11 @@
    include "layouts/footer.php";
 
    if (isset($_POST['submit'])) {
-      if (editTodo($_POST, $id) > 0) 
+      if (editUser($_POST, $id) > 0) 
       {
          echo "
             <script>
-               alert('Todo successfully updated!');
+               alert('User successfully updated!');
                document.location.href = 'index.php';
             </script>
             ";
